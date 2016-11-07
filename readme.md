@@ -18,11 +18,45 @@ You will need the latest developer tools in order to build `CTNetworking`. Old X
 
 ## Adding CTNetworking to your project
 
+Installation with CocoaPods
+
+Podfile
+
+To integrate CTNetworking into Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```
+source 'ssh://git@192.168.1.243/git/Specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
+target 'TargetName' do
+pod 'CTNetworking', '1.1.0P'
+end
+```
+
 ## Demo
 
 Just download or clone the whole project and DO NOT FORGET `$ pod update --verbose`
 
 ## Usage
+
+### Register service
+
+```
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    [self setUpCTNetworking];
+
+    // Other stuff...
+
+    return YES;
+}
+
+- (void)setUpCTNetworking
+{
+        [[CTServiceFactory sharedInstance] registerService:[DMLOpenWeatherMapService class] withIdentifier:DMLOpenWeatherMapServiceV2_5];
+}
+```
 
 ### Call API
 
@@ -55,7 +89,7 @@ Implement all methods of `CTServiceProtocol`
 
 #### Custom an APIManager
 
-Inherit `CTAPIBaseManager` and follow `CTAPIManager` Protocal
+Inherit `CTAPIBaseManager` and follow `CTAPIManager` Protocol 
 
 ```objective-c
 @interface TestAPIManager : CTAPIBaseManager <CTAPIManager>
