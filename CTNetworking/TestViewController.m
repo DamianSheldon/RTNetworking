@@ -29,13 +29,24 @@ NSString * const kBSDataSourceItemKeyTestCaseTitle = @"kBSDataSourceItemKeyTestC
     [super viewDidLoad];
     
     [self.view addSubview:self.tableView];
+    [self configureConstraintsForTableView];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    
+//    [self.tableView fill];
+//}
+
+- (void)configureConstraintsForTableView
 {
-    [super viewWillAppear:animated];
+    [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
-    [self.tableView fill];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.bottomLayoutGuide attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
 }
 
 #pragma mark - UITableViewDelegate

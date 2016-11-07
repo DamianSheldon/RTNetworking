@@ -9,6 +9,8 @@
 #import "GDMapService.h"
 #import "CTAppContext.h"
 
+NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
+
 @implementation GDMapService
 
 #pragma mark - CTServiceProtocal

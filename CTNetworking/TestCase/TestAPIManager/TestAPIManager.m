@@ -7,6 +7,7 @@
 //
 
 #import "TestAPIManager.h"
+#import "GDMapService.h"
 
 NSString * const kTestAPIManagerParamsKeyLatitude = @"kTestAPIManagerParamsKeyLatitude";
 NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyLongitude";

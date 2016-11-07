@@ -9,17 +9,18 @@
 #import "CTServiceFactory.h"
 #import "CTService.h"
 
-#import "GDMapService.h"
+//#import "GDMapService.h"
 
 /*************************************************************************/
 
 // service name list
-NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
+//NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
 
 
 @interface CTServiceFactory ()
 
 @property (nonatomic, strong) NSMutableDictionary *serviceStorage;
+@property (nonatomic, strong) NSMutableDictionary *serviceClassStorage;
 
 @end
 
@@ -34,6 +35,15 @@ NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
     return _serviceStorage;
 }
 
+- (NSMutableDictionary *)serviceClassStorage
+{
+    if (!_serviceClassStorage) {
+        _serviceClassStorage = [[NSMutableDictionary alloc] init];
+
+    }
+    return _serviceClassStorage;
+}
+
 #pragma mark - life cycle
 + (instancetype)sharedInstance
 {
@@ -46,6 +56,11 @@ NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
 }
 
 #pragma mark - public methods
+- (void)registerService:(Class)service withIdentifier:(NSString *)identifier
+{
+    [self.serviceClassStorage setObject:service forKey:identifier];
+}
+
 - (CTService<CTServiceProtocol> *)serviceWithIdentifier:(NSString *)identifier
 {
     if (self.serviceStorage[identifier] == nil) {
@@ -57,11 +72,9 @@ NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
 #pragma mark - private methods
 - (CTService<CTServiceProtocol> *)newServiceWithIdentifier:(NSString *)identifier
 {
-    if ([identifier isEqualToString:kCTServiceGDMapV3]) {
-        return [[GDMapService alloc] init];
-    }
+    Class class = self.serviceClassStorage[identifier];
     
-    return nil;
+    return [class new];
 }
 
 @end

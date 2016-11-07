@@ -231,7 +231,7 @@ typedef NS_ENUM (NSUInteger, CTAPIManagerRequestType){
 /*                                         CTAPIManager                                          */
 /*************************************************************************************************/
 /*
- CTAPIBaseManager的派生类必须符合这些protocal
+ CTAPIBaseManager的派生类必须符合这些protocol
  */
 @protocol CTAPIManager <NSObject>
 
@@ -259,7 +259,7 @@ typedef NS_ENUM (NSUInteger, CTAPIManagerRequestType){
 /*                                    CTAPIManagerInterceptor                                    */
 /*************************************************************************************************/
 /*
- CTAPIBaseManager的派生类必须符合这些protocal
+ CTAPIBaseManager的派生类必须符合这些protocol
  */
 @protocol CTAPIManagerInterceptor <NSObject>
 

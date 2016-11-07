@@ -27,7 +27,7 @@
 - (BOOL)isOutdated
 {
     NSTimeInterval timeInterval = [[NSDate date] timeIntervalSinceDate:self.lastUpdateTime];
-    return timeInterval > kCTCacheOutdateTimeSeconds;
+    return timeInterval > [CTNetworkingConfiguration sharedNetworkConfiguration].cacheOutDateTimeSeconds;
 }
 
 - (void)setContent:(NSData *)content

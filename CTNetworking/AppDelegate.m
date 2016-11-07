@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "CTNetworking.h"
+#import "GDMapService.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self setUpCTNetworking];
+    
     return YES;
 }
 
@@ -40,6 +45,13 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - CTNetworking Stuff
+
+- (void)setUpCTNetworking
+{
+    [[CTServiceFactory sharedInstance] registerService:[GDMapService class] withIdentifier:kCTServiceGDMapV3];
 }
 
 @end

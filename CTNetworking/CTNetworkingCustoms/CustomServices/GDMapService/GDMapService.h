@@ -8,6 +8,8 @@
 
 #import "CTService.h"
 
+extern NSString * const kCTServiceGDMapV3;
+
 @interface GDMapService : CTService <CTServiceProtocol>
 
 @end

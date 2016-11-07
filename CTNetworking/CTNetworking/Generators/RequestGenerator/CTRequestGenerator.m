@@ -110,7 +110,7 @@
 {
     if (_httpRequestSerializer == nil) {
         _httpRequestSerializer = [AFHTTPRequestSerializer serializer];
-        _httpRequestSerializer.timeoutInterval = kCTNetworkingTimeoutSeconds;
+        _httpRequestSerializer.timeoutInterval = [CTNetworkingConfiguration sharedNetworkConfiguration].timeoutSeconds;
         _httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
     }
     return _httpRequestSerializer;

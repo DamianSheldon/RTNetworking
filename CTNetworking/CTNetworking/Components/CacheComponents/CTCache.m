@@ -23,7 +23,7 @@
 {
     if (_cache == nil) {
         _cache = [[NSCache alloc] init];
-        _cache.countLimit = kCTCacheCountLimit;
+        _cache.countLimit = [CTNetworkingConfiguration sharedNetworkConfiguration].cacheCountLimit;
     }
     return _cache;
 }
@@ -96,5 +96,4 @@
     return [NSString stringWithFormat:@"%@%@%@", serviceIdentifier, methodName, [requestParams CT_urlParamsStringSignature:NO]];
 }
 
-#pragma mark - private method
 @end

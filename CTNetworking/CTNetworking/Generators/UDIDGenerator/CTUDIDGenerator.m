@@ -23,34 +23,40 @@
 
 - (NSString *)UDID
 {
-    NSData *udidData = [self searchKeychainCopyMatching:CTUDIDName];
+    NSString *UDIDName = [CTNetworkingConfiguration sharedNetworkConfiguration].UDIDName;
+    
+    NSData *udidData = [self searchKeychainCopyMatching:UDIDName];
     NSString *udid = nil;
     if (udidData != nil) {
         NSString *temp = [[NSString alloc] initWithData:udidData encoding:NSUTF8StringEncoding];
         udid = [NSString stringWithFormat:@"%@", temp];
     }
     if (udid.length == 0) {
-        udid = [self readPasteBoradforIdentifier:CTUDIDName];
+        udid = [self readPasteBoradforIdentifier:UDIDName];
     }
     return udid;
 }
 
 - (void)saveUDID:(NSString *)udid
 {
+    NSString *UDIDName = [CTNetworkingConfiguration sharedNetworkConfiguration].UDIDName;
+
     BOOL saveOk = NO;
-    NSData *udidData = [self searchKeychainCopyMatching:CTUDIDName];
+    NSData *udidData = [self searchKeychainCopyMatching:UDIDName];
     if (udidData == nil) {
-        saveOk = [self createKeychainValue:udid forIdentifier:CTUDIDName];
+        saveOk = [self createKeychainValue:udid forIdentifier:UDIDName];
     }else{
-        saveOk = [self updateKeychainValue:udid forIdentifier:CTUDIDName];
+        saveOk = [self updateKeychainValue:udid forIdentifier:UDIDName];
     }
     if (!saveOk) {
-        [self createPasteBoradValue:udid forIdentifier:CTUDIDName];
+        [self createPasteBoradValue:udid forIdentifier:UDIDName];
     }
 }
 
 - (NSMutableDictionary *)newSearchDictionary:(NSString *)identifier
 {
+    NSString *keychainServiceName = [CTNetworkingConfiguration sharedNetworkConfiguration].keychainServiceName;
+    
     NSMutableDictionary *searchDictionary = [[NSMutableDictionary alloc] init];
     
     [searchDictionary setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
@@ -58,7 +64,7 @@
     NSData *encodedIdentifier = [identifier dataUsingEncoding:NSUTF8StringEncoding];
     [searchDictionary setObject:encodedIdentifier forKey:(__bridge id)kSecAttrGeneric];
     [searchDictionary setObject:encodedIdentifier forKey:(__bridge id)kSecAttrAccount];
-    [searchDictionary setObject:CTKeychainServiceName forKey:(__bridge id)kSecAttrService];
+    [searchDictionary setObject:keychainServiceName forKey:(__bridge id)kSecAttrService];
     
     return searchDictionary;
 }
@@ -120,17 +126,23 @@
 
 - (void)createPasteBoradValue:(NSString *)value forIdentifier:(NSString *)identifier
 {
-    UIPasteboard *pb = [UIPasteboard pasteboardWithName:CTKeychainServiceName create:YES];
+    NSString *keychainServiceName = [CTNetworkingConfiguration sharedNetworkConfiguration].keychainServiceName;
+    NSString *pasteboardType = [CTNetworkingConfiguration sharedNetworkConfiguration].pasteboardType;
+    
+    UIPasteboard *pb = [UIPasteboard pasteboardWithName:keychainServiceName create:YES];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:value forKey:identifier];
     NSData *dictData = [NSKeyedArchiver archivedDataWithRootObject:dict];
-    [pb setData:dictData forPasteboardType:CTPasteboardType];
+    [pb setData:dictData forPasteboardType:pasteboardType];
 }
 
 - (NSString *)readPasteBoradforIdentifier:(NSString *)identifier
 {
-    
-    UIPasteboard *pb = [UIPasteboard pasteboardWithName:CTKeychainServiceName create:YES];
-    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:[pb dataForPasteboardType:CTPasteboardType]];
+    NSString *keychainServiceName = [CTNetworkingConfiguration sharedNetworkConfiguration].keychainServiceName;
+    NSString *pasteboardType = [CTNetworkingConfiguration sharedNetworkConfiguration].pasteboardType;
+
+    UIPasteboard *pb = [UIPasteboard pasteboardWithName:keychainServiceName create:YES];
+    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:[pb dataForPasteboardType:pasteboardType]];
     return [dict objectForKey:identifier];
 }
+
 @end

@@ -6,8 +6,7 @@
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#ifndef CTNetworking_CTNetworkingConfiguration_h
-#define CTNetworking_CTNetworkingConfiguration_h
+#import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, CTAppType) {
     CTAppTypexxx
@@ -20,17 +19,28 @@ typedef NS_ENUM(NSUInteger, CTURLResponseStatus)
     CTURLResponseStatusErrorNoNetwork // 默认除了超时以外的错误都是无网络错误。
 };
 
-static NSString *CTKeychainServiceName = @"xxxxx";
-static NSString *CTUDIDName = @"xxxx";
-static NSString *CTPasteboardType = @"xxxx";
+extern const BOOL kCTShouldCache;
+extern const BOOL kCTServiceIsOnline;
 
-static BOOL kCTShouldCache = YES;
-static BOOL kCTServiceIsOnline = NO;
-static NSTimeInterval kCTNetworkingTimeoutSeconds = 20.0f;
-static NSTimeInterval kCTCacheOutdateTimeSeconds = 300; // 5分钟的cache过期时间
-static NSUInteger kCTCacheCountLimit = 1000; // 最多1000条cache
+//static NSString *CTKeychainServiceName = @"xxxxx";
+//static NSString *CTUDIDName = @"xxxx";
+//static NSString *CTPasteboardType = @"xxxx";
 
-// services
-extern NSString * const kCTServiceGDMapV3;
+@interface CTNetworkingConfiguration : NSObject
 
-#endif
++ (instancetype)sharedNetworkConfiguration;
+
+@property (nonatomic) NSTimeInterval timeoutSeconds; // Default is 20s
+@property (nonatomic) NSTimeInterval cacheOutDateTimeSeconds; // Default is 300s
+@property (nonatomic) NSUInteger cacheCountLimit; // Default is 1000
+
+/* NOTE: Configure field for CTUDIDGenerator, must initial before use.
+                --->keychainServiceName(Persistent by keychain service)
+    UDIDName --|
+                --->pasteboardType(Persistent by pasteboard)
+ */
+@property (nonatomic, copy) NSString *keychainServiceName;
+@property (nonatomic, copy) NSString *UDIDName;
+@property (nonatomic, copy) NSString *pasteboardType;// A string identifying the representation type of the pasteboard item. This is typically a UTI. eg.public.uft8-plain-text
+
+@end
