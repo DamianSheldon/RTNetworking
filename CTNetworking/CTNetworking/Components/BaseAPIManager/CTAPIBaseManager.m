@@ -10,14 +10,13 @@
 #import "CTNetworking.h"
 #import "CTCache.h"
 #import "CTLogger.h"
-#import "CTServiceFactory.h"
 #import "CTAppContext.h"
 #import "CTApiProxy.h"
 
 #define AXCallAPI(REQUEST_METHOD, REQUEST_ID)                                                   \
 {                                                                                               \
     __weak typeof(self) weakSelf = self;                                                        \
-    REQUEST_ID = [[CTApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiParams serviceIdentifier:self.child.serviceType methodName:self.child.methodName success:^(CTURLResponse *response) { \
+    REQUEST_ID = [[CTApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiParams serviceClass:self.child.serviceClass methodName:self.child.methodName success:^(CTURLResponse *response) { \
         __strong typeof(weakSelf) strongSelf = weakSelf;                                        \
         [strongSelf successedOnCallingAPI:response];                                            \
     } fail:^(CTURLResponse *response) {                                                        \
@@ -375,7 +374,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
         __strong typeof (weakSelf) strongSelf = weakSelf;
         CTURLResponse *response = [[CTURLResponse alloc] initWithData:result];
         response.requestParams = params;
-        [CTLogger logDebugInfoWithCachedResponse:response methodName:methodName serviceIdentifier:[[CTServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier]];
+        [CTLogger logDebugInfoWithCachedResponse:response methodName:methodName serviceIdentifier:[self.child.serviceClass new]];
         [strongSelf successedOnCallingAPI:response];
     });
     return YES;

@@ -13,7 +13,6 @@
 #import "CTAppContext.h"
 #import "NSArray+AXNetworkingMethods.h"
 #import "CTApiProxy.h"
-#import "CTServiceFactory.h"
 
 #ifdef DEBUG
 #define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
@@ -129,7 +128,7 @@
     [actionDict addEntriesFromDictionary:params];
     [actionDict addEntriesFromDictionary:[CTCommonParamsGenerator commonParamsDictionaryForLog]];
     NSDictionary *logJsonDict = @{self.configParams.sendActionKey:[@[actionDict] AX_jsonString]};
-    [[CTApiProxy sharedInstance] callPOSTWithParams:logJsonDict serviceIdentifier:self.configParams.serviceType methodName:self.configParams.sendActionMethod success:nil fail:nil];
+    [[CTApiProxy sharedInstance] callPOSTWithParams:logJsonDict serviceClass:self.configParams.serviceClass methodName:self.configParams.sendActionMethod success:nil fail:nil];
 }
 
 @end

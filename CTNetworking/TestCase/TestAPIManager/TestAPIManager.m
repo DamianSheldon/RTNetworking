@@ -39,6 +39,11 @@ NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyL
     return kCTServiceGDMapV3;
 }
 
+- (Class)serviceClass
+{
+    return [GDMapService class];
+}
+
 - (CTAPIManagerRequestType)requestType
 {
     return CTAPIManagerRequestTypeGet;
@@ -52,7 +57,7 @@ NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyL
 - (NSDictionary *)reformParams:(NSDictionary *)params
 {
     NSMutableDictionary *resultParams = [[NSMutableDictionary alloc] init];
-    resultParams[@"key"] = [[CTServiceFactory sharedInstance] serviceWithIdentifier:kCTServiceGDMapV3].publicKey;
+    resultParams[@"key"] = [GDMapService new].publicKey;
     resultParams[@"location"] = [NSString stringWithFormat:@"%@,%@", params[kTestAPIManagerParamsKeyLongitude], params[kTestAPIManagerParamsKeyLatitude]];
     resultParams[@"output"] = @"json";
     return resultParams;

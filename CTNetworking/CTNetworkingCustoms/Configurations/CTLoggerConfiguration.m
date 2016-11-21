@@ -7,7 +7,6 @@
 //
 
 #import "CTLoggerConfiguration.h"
-#import "CTServiceFactory.h"
 
 @implementation CTLoggerConfiguration
 

@@ -238,6 +238,7 @@ typedef NS_ENUM (NSUInteger, CTAPIManagerRequestType){
 @required
 - (NSString *)methodName;
 - (NSString *)serviceType;
+- (Class)serviceClass;
 - (CTAPIManagerRequestType)requestType;
 - (BOOL)shouldCache;
 

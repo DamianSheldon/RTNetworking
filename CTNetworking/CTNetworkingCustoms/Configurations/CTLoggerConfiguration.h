@@ -23,6 +23,9 @@
 /** 服务名 */
 @property (nonatomic, assign) NSString *serviceType;
 
+/** 服务类 */
+@property (nonatomic) Class serviceClass;
+
 /** 记录log用到的webapi方法名 */
 @property (nonatomic, strong) NSString *sendLogMethod;
 

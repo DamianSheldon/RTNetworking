@@ -10,7 +10,6 @@
 #define CTNetworking_CTNetworking_h
 
 #import "CTApiProxy.h"
-#import "CTServiceFactory.h"
 #import "CTAppContext.h"
 #import "CTAPIBaseManager.h"
 #import "CTNetworkingConfiguration.h"

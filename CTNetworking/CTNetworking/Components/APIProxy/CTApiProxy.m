@@ -8,7 +8,6 @@
 
 #import <AFNetworking/AFNetworking.h>
 #import "CTApiProxy.h"
-#import "CTServiceFactory.h"
 #import "CTRequestGenerator.h"
 #import "CTLogger.h"
 #import "NSURLRequest+CTNetworkingMethods.h"
@@ -59,30 +58,30 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
 }
 
 #pragma mark - public methods
-- (NSInteger)callGETWithParams:(NSDictionary *)params serviceIdentifier:(NSString *)servieIdentifier methodName:(NSString *)methodName success:(AXCallback)success fail:(AXCallback)fail
+- (NSInteger)callGETWithParams:(NSDictionary *)params serviceClass:(Class)serviceClass methodName:(NSString *)methodName success:(AXCallback)success fail:(AXCallback)fail
 {
-    NSURLRequest *request = [[CTRequestGenerator sharedInstance] generateGETRequestWithServiceIdentifier:servieIdentifier requestParams:params methodName:methodName];
+    NSURLRequest *request = [[CTRequestGenerator sharedInstance] generateGETRequestWithServiceClass:serviceClass requestParams:params methodName:methodName];
     NSNumber *requestId = [self callApiWithRequest:request success:success fail:fail];
     return [requestId integerValue];
 }
 
-- (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceIdentifier:(NSString *)servieIdentifier methodName:(NSString *)methodName success:(AXCallback)success fail:(AXCallback)fail
+- (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceClass:(Class)serviceClass methodName:(NSString *)methodName success:(AXCallback)success fail:(AXCallback)fail
 {
-    NSURLRequest *request = [[CTRequestGenerator sharedInstance] generatePOSTRequestWithServiceIdentifier:servieIdentifier requestParams:params methodName:methodName];
+    NSURLRequest *request = [[CTRequestGenerator sharedInstance] generatePOSTRequestWithServiceClass:serviceClass requestParams:params methodName:methodName];
     NSNumber *requestId = [self callApiWithRequest:request success:success fail:fail];
     return [requestId integerValue];
 }
 
-- (NSInteger)callPUTWithParams:(NSDictionary *)params serviceIdentifier:(NSString *)servieIdentifier methodName:(NSString *)methodName success:(AXCallback)success fail:(AXCallback)fail
+- (NSInteger)callPUTWithParams:(NSDictionary *)params serviceClass:(Class)serviceClass methodName:(NSString *)methodName success:(AXCallback)success fail:(AXCallback)fail
 {
-    NSURLRequest *request = [[CTRequestGenerator sharedInstance] generatePutRequestWithServiceIdentifier:servieIdentifier requestParams:params methodName:methodName];
+    NSURLRequest *request = [[CTRequestGenerator sharedInstance] generatePutRequestWithServiceClass:serviceClass requestParams:params methodName:methodName];
     NSNumber *requestId = [self callApiWithRequest:request success:success fail:fail];
     return [requestId integerValue];
 }
 
-- (NSInteger)callDELETEWithParams:(NSDictionary *)params serviceIdentifier:(NSString *)servieIdentifier methodName:(NSString *)methodName success:(AXCallback)success fail:(AXCallback)fail
+- (NSInteger)callDELETEWithParams:(NSDictionary *)params serviceClass:(Class)serviceClass methodName:(NSString *)methodName success:(AXCallback)success fail:(AXCallback)fail
 {
-    NSURLRequest *request = [[CTRequestGenerator sharedInstance] generateDeleteRequestWithServiceIdentifier:servieIdentifier requestParams:params methodName:methodName];
+    NSURLRequest *request = [[CTRequestGenerator sharedInstance] generateDeleteRequestWithServiceClass:serviceClass requestParams:params methodName:methodName];
     NSNumber *requestId = [self callApiWithRequest:request success:success fail:fail];
     return [requestId integerValue];
 }
