@@ -15,6 +15,10 @@
 #import "CTApiProxy.h"
 #import "CTServiceFactory.h"
 
+#ifdef DEBUG
+#define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#endif
+
 @interface CTLogger ()
 
 @property (nonatomic, strong, readwrite) CTLoggerConfiguration *configParams;
