@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CTNetworking"
-  s.version      = "1.2.0P"
+  s.version      = "1.2.1P"
   s.summary      = "The networking layer for iOS App."
 
   s.description  = <<-DESC
