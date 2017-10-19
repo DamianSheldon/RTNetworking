@@ -13,6 +13,6 @@
 #import "CTAppContext.h"
 #import "CTService.h"
 #import "CTAPIBaseManager.h"
-#import "CTNetworkingConfiguration.h"
+#import "CTNetworkingConfigurationManager.h"
 
 #endif

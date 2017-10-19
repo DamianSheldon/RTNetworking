@@ -7,9 +7,8 @@
 //
 
 #import "CTCache.h"
-#import "NSDictionary+AXNetworkingMethods.h"
-#import "CTNetworkingConfiguration.h"
-
+#import "NSDictionary+CTNetworkingMethods.h"
+#import "CTNetworkingConfigurationManager.h"
 @interface CTCache ()
 
 @property (nonatomic, strong) NSCache *cache;
@@ -23,9 +22,9 @@
 {
     if (_cache == nil) {
         _cache = [[NSCache alloc] init];
-        _cache.countLimit = [CTNetworkingConfiguration sharedNetworkConfiguration].cacheCountLimit;
+        _cache.countLimit = [CTNetworkingConfigurationManager sharedInstance].cacheCountLimit;
     }
-    return _cache;
+return _cache;
 }
 
 #pragma mark - life cycle

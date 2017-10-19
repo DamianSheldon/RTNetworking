@@ -16,4 +16,5 @@
 - (NSURLRequest *)generatePOSTRequestWithServiceClass:(Class)serviceClass requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName;
 - (NSURLRequest *)generatePutRequestWithServiceClass:(Class)serviceClass requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName;
 - (NSURLRequest *)generateDeleteRequestWithServiceClass:(Class)serviceClass requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName;
+
 @end
