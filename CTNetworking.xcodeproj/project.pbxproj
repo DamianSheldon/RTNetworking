@@ -15,6 +15,11 @@
 		58DB1F631F98A64E00AF2A84 /* NSObject+CTNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DB1F5B1F98A64E00AF2A84 /* NSObject+CTNetworkingMethods.m */; };
 		58DB1F641F98A64E00AF2A84 /* NSString+CTNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DB1F5D1F98A64E00AF2A84 /* NSString+CTNetworkingMethods.m */; };
 		58DB1F651F98A64E00AF2A84 /* UIDevice+CTNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DB1F5F1F98A64E00AF2A84 /* UIDevice+CTNetworkingMethods.m */; };
+		58DB1F711F98A6A200AF2A84 /* CLBasicCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DB1F681F98A6A200AF2A84 /* CLBasicCommand.m */; };
+		58DB1F721F98A6A200AF2A84 /* LGBaseAPICommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DB1F6A1F98A6A200AF2A84 /* LGBaseAPICommand.m */; };
+		58DB1F731F98A6A200AF2A84 /* CTLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DB1F6D1F98A6A200AF2A84 /* CTLoggerConfiguration.m */; };
+		58DB1F741F98A6A200AF2A84 /* CTNetworkingConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58DB1F6E1F98A6A200AF2A84 /* CTNetworkingConfiguration.plist */; };
+		58DB1F751F98A6A200AF2A84 /* CTNetworkingConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DB1F701F98A6A200AF2A84 /* CTNetworkingConfigurationManager.m */; };
 		ABC677131CF707C100B520A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677121CF707C100B520A6 /* main.m */; };
 		ABC677161CF707C100B520A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677151CF707C100B520A6 /* AppDelegate.m */; };
 		ABC677191CF707C100B520A6 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677181CF707C100B520A6 /* TestViewController.m */; };
@@ -59,6 +64,15 @@
 		58DB1F5D1F98A64E00AF2A84 /* NSString+CTNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CTNetworkingMethods.m"; sourceTree = "<group>"; };
 		58DB1F5E1F98A64E00AF2A84 /* UIDevice+CTNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+CTNetworkingMethods.h"; sourceTree = "<group>"; };
 		58DB1F5F1F98A64E00AF2A84 /* UIDevice+CTNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+CTNetworkingMethods.m"; sourceTree = "<group>"; };
+		58DB1F671F98A6A200AF2A84 /* CLBasicCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLBasicCommand.h; sourceTree = "<group>"; };
+		58DB1F681F98A6A200AF2A84 /* CLBasicCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLBasicCommand.m; sourceTree = "<group>"; };
+		58DB1F691F98A6A200AF2A84 /* LGBaseAPICommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGBaseAPICommand.h; sourceTree = "<group>"; };
+		58DB1F6A1F98A6A200AF2A84 /* LGBaseAPICommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGBaseAPICommand.m; sourceTree = "<group>"; };
+		58DB1F6C1F98A6A200AF2A84 /* CTLoggerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTLoggerConfiguration.h; sourceTree = "<group>"; };
+		58DB1F6D1F98A6A200AF2A84 /* CTLoggerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTLoggerConfiguration.m; sourceTree = "<group>"; };
+		58DB1F6E1F98A6A200AF2A84 /* CTNetworkingConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CTNetworkingConfiguration.plist; sourceTree = "<group>"; };
+		58DB1F6F1F98A6A200AF2A84 /* CTNetworkingConfigurationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworkingConfigurationManager.h; sourceTree = "<group>"; };
+		58DB1F701F98A6A200AF2A84 /* CTNetworkingConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNetworkingConfigurationManager.m; sourceTree = "<group>"; };
 		A7E991CD00AE580099C56CF4 /* libPods-CTNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CTNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC6770E1CF707C100B520A6 /* CTNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CTNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC677121CF707C100B520A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -131,6 +145,30 @@
 				A7E991CD00AE580099C56CF4 /* libPods-CTNetworking.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58DB1F661F98A6A200AF2A84 /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				58DB1F671F98A6A200AF2A84 /* CLBasicCommand.h */,
+				58DB1F681F98A6A200AF2A84 /* CLBasicCommand.m */,
+				58DB1F691F98A6A200AF2A84 /* LGBaseAPICommand.h */,
+				58DB1F6A1F98A6A200AF2A84 /* LGBaseAPICommand.m */,
+			);
+			name = Command;
+			path = Components/Command;
+			sourceTree = "<group>";
+		};
+		58DB1F6B1F98A6A200AF2A84 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				58DB1F6C1F98A6A200AF2A84 /* CTLoggerConfiguration.h */,
+				58DB1F6D1F98A6A200AF2A84 /* CTLoggerConfiguration.m */,
+				58DB1F6E1F98A6A200AF2A84 /* CTNetworkingConfiguration.plist */,
+				58DB1F6F1F98A6A200AF2A84 /* CTNetworkingConfigurationManager.h */,
+				58DB1F701F98A6A200AF2A84 /* CTNetworkingConfigurationManager.m */,
+			);
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 		6DC322692580AE494C000410 /* Pods */ = {
@@ -237,6 +275,8 @@
 		ABC678281CF7251400B520A6 /* CTNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				58DB1F661F98A6A200AF2A84 /* Command */,
+				58DB1F6B1F98A6A200AF2A84 /* Configurations */,
 				ABC678531CF7251400B520A6 /* CTNetworking.h */,
 				ABC678291CF7251400B520A6 /* Categories */,
 				ABC678381CF7251400B520A6 /* Components */,
@@ -502,6 +542,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58DB1F741F98A6A200AF2A84 /* CTNetworkingConfiguration.plist in Resources */,
 				ABC6787C1CF7251400B520A6 /* iPhoneTypeDefine.plist in Resources */,
 				ABC677211CF707C100B520A6 /* LaunchScreen.storyboard in Resources */,
 				ABC6771E1CF707C100B520A6 /* Assets.xcassets in Resources */,
@@ -616,10 +657,12 @@
 				58DB1F631F98A64E00AF2A84 /* NSObject+CTNetworkingMethods.m in Sources */,
 				ABC678791CF7251400B520A6 /* CTAPIBaseManager.m in Sources */,
 				ABC677191CF707C100B520A6 /* TestViewController.m in Sources */,
+				58DB1F721F98A6A200AF2A84 /* LGBaseAPICommand.m in Sources */,
 				ABC678961CF7271000B520A6 /* CTLoggerConfiguration.m in Sources */,
 				ABC678851CF7251400B520A6 /* CTService.m in Sources */,
 				58DB1F621F98A64E00AF2A84 /* NSMutableString+CTNetworkingMethods.m in Sources */,
 				588032C21DCC8D17003AFF96 /* CTNetworkingConfiguration.m in Sources */,
+				58DB1F751F98A6A200AF2A84 /* CTNetworkingConfigurationManager.m in Sources */,
 				ABC678771CF7251400B520A6 /* CTApiProxy.m in Sources */,
 				58DB1F641F98A64E00AF2A84 /* NSString+CTNetworkingMethods.m in Sources */,
 				ABC6787B1CF7251400B520A6 /* CTCachedObject.m in Sources */,
@@ -633,11 +676,13 @@
 				58DB1F601F98A64E00AF2A84 /* NSArray+CTNetworkingMethods.m in Sources */,
 				ABC678951CF7271000B520A6 /* CTAppContext.m in Sources */,
 				ABC678751CF7251400B520A6 /* NSURLRequest+CTNetworkingMethods.m in Sources */,
+				58DB1F711F98A6A200AF2A84 /* CLBasicCommand.m in Sources */,
 				ABC6787D1CF7251400B520A6 /* CTLocationManager.m in Sources */,
 				ABC678981CF7271000B520A6 /* GDMapService.m in Sources */,
 				ABC677161CF707C100B520A6 /* AppDelegate.m in Sources */,
 				ABC678271CF7138900B520A6 /* TestCaseFactory.m in Sources */,
 				ABC677131CF707C100B520A6 /* main.m in Sources */,
+				58DB1F731F98A6A200AF2A84 /* CTLoggerConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
