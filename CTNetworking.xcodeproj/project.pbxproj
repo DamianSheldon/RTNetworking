@@ -18,13 +18,7 @@
 		ABC678211CF7109400B520A6 /* TestAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677FD1CF7109400B520A6 /* TestAPIManager.m */; };
 		ABC678231CF7109400B520A6 /* FireSingleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678031CF7109400B520A6 /* FireSingleAPI.m */; };
 		ABC678271CF7138900B520A6 /* TestCaseFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678261CF7138900B520A6 /* TestCaseFactory.m */; };
-		ABC678701CF7251400B520A6 /* NSArray+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6782B1CF7251400B520A6 /* NSArray+AXNetworkingMethods.m */; };
-		ABC678711CF7251400B520A6 /* NSDictionary+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6782D1CF7251400B520A6 /* NSDictionary+AXNetworkingMethods.m */; };
-		ABC678721CF7251400B520A6 /* NSMutableString+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6782F1CF7251400B520A6 /* NSMutableString+AXNetworkingMethods.m */; };
-		ABC678731CF7251400B520A6 /* NSObject+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678311CF7251400B520A6 /* NSObject+AXNetworkingMethods.m */; };
-		ABC678741CF7251400B520A6 /* NSString+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678331CF7251400B520A6 /* NSString+AXNetworkingMethods.m */; };
 		ABC678751CF7251400B520A6 /* NSURLRequest+CTNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678351CF7251400B520A6 /* NSURLRequest+CTNetworkingMethods.m */; };
-		ABC678761CF7251400B520A6 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678371CF7251400B520A6 /* UIDevice+IdentifierAddition.m */; };
 		ABC678771CF7251400B520A6 /* CTApiProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6783B1CF7251400B520A6 /* CTApiProxy.m */; };
 		ABC678791CF7251400B520A6 /* CTAPIBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678411CF7251400B520A6 /* CTAPIBaseManager.m */; };
 		ABC6787A1CF7251400B520A6 /* CTCache.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678441CF7251400B520A6 /* CTCache.m */; };
@@ -36,7 +30,6 @@
 		ABC678811CF7251400B520A6 /* CTCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678581CF7251400B520A6 /* CTCommonParamsGenerator.m */; };
 		ABC678821CF7251400B520A6 /* CTRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6785B1CF7251400B520A6 /* CTRequestGenerator.m */; };
 		ABC678831CF7251400B520A6 /* CTSignatureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6785E1CF7251400B520A6 /* CTSignatureGenerator.m */; };
-		ABC678841CF7251400B520A6 /* CTUDIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678611CF7251400B520A6 /* CTUDIDGenerator.m */; };
 		ABC678851CF7251400B520A6 /* CTService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678661CF7251400B520A6 /* CTService.m */; };
 		ABC678951CF7271000B520A6 /* CTAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6788B1CF7271000B520A6 /* CTAppContext.m */; };
 		ABC678961CF7271000B520A6 /* CTLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6788E1CF7271000B520A6 /* CTLoggerConfiguration.m */; };
@@ -66,20 +59,8 @@
 		ABC678031CF7109400B520A6 /* FireSingleAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FireSingleAPI.m; sourceTree = "<group>"; };
 		ABC678251CF7138900B520A6 /* TestCaseFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseFactory.h; sourceTree = "<group>"; };
 		ABC678261CF7138900B520A6 /* TestCaseFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCaseFactory.m; sourceTree = "<group>"; };
-		ABC6782A1CF7251400B520A6 /* NSArray+AXNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+AXNetworkingMethods.h"; sourceTree = "<group>"; };
-		ABC6782B1CF7251400B520A6 /* NSArray+AXNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AXNetworkingMethods.m"; sourceTree = "<group>"; };
-		ABC6782C1CF7251400B520A6 /* NSDictionary+AXNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+AXNetworkingMethods.h"; sourceTree = "<group>"; };
-		ABC6782D1CF7251400B520A6 /* NSDictionary+AXNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+AXNetworkingMethods.m"; sourceTree = "<group>"; };
-		ABC6782E1CF7251400B520A6 /* NSMutableString+AXNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+AXNetworkingMethods.h"; sourceTree = "<group>"; };
-		ABC6782F1CF7251400B520A6 /* NSMutableString+AXNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+AXNetworkingMethods.m"; sourceTree = "<group>"; };
-		ABC678301CF7251400B520A6 /* NSObject+AXNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AXNetworkingMethods.h"; sourceTree = "<group>"; };
-		ABC678311CF7251400B520A6 /* NSObject+AXNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AXNetworkingMethods.m"; sourceTree = "<group>"; };
-		ABC678321CF7251400B520A6 /* NSString+AXNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AXNetworkingMethods.h"; sourceTree = "<group>"; };
-		ABC678331CF7251400B520A6 /* NSString+AXNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AXNetworkingMethods.m"; sourceTree = "<group>"; };
 		ABC678341CF7251400B520A6 /* NSURLRequest+CTNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+CTNetworkingMethods.h"; sourceTree = "<group>"; };
 		ABC678351CF7251400B520A6 /* NSURLRequest+CTNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+CTNetworkingMethods.m"; sourceTree = "<group>"; };
-		ABC678361CF7251400B520A6 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
-		ABC678371CF7251400B520A6 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		ABC6783A1CF7251400B520A6 /* CTApiProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTApiProxy.h; sourceTree = "<group>"; };
 		ABC6783B1CF7251400B520A6 /* CTApiProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTApiProxy.m; sourceTree = "<group>"; };
 		ABC678401CF7251400B520A6 /* CTAPIBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAPIBaseManager.h; sourceTree = "<group>"; };
@@ -102,8 +83,6 @@
 		ABC6785B1CF7251400B520A6 /* CTRequestGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTRequestGenerator.m; sourceTree = "<group>"; };
 		ABC6785D1CF7251400B520A6 /* CTSignatureGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSignatureGenerator.h; sourceTree = "<group>"; };
 		ABC6785E1CF7251400B520A6 /* CTSignatureGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSignatureGenerator.m; sourceTree = "<group>"; };
-		ABC678601CF7251400B520A6 /* CTUDIDGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTUDIDGenerator.h; sourceTree = "<group>"; };
-		ABC678611CF7251400B520A6 /* CTUDIDGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTUDIDGenerator.m; sourceTree = "<group>"; };
 		ABC678651CF7251400B520A6 /* CTService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTService.h; sourceTree = "<group>"; };
 		ABC678661CF7251400B520A6 /* CTService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTService.m; sourceTree = "<group>"; };
 		ABC6788A1CF7271000B520A6 /* CTAppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAppContext.h; sourceTree = "<group>"; };
@@ -252,20 +231,8 @@
 		ABC678291CF7251400B520A6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				ABC6782A1CF7251400B520A6 /* NSArray+AXNetworkingMethods.h */,
-				ABC6782B1CF7251400B520A6 /* NSArray+AXNetworkingMethods.m */,
-				ABC6782C1CF7251400B520A6 /* NSDictionary+AXNetworkingMethods.h */,
-				ABC6782D1CF7251400B520A6 /* NSDictionary+AXNetworkingMethods.m */,
-				ABC6782E1CF7251400B520A6 /* NSMutableString+AXNetworkingMethods.h */,
-				ABC6782F1CF7251400B520A6 /* NSMutableString+AXNetworkingMethods.m */,
-				ABC678301CF7251400B520A6 /* NSObject+AXNetworkingMethods.h */,
-				ABC678311CF7251400B520A6 /* NSObject+AXNetworkingMethods.m */,
-				ABC678321CF7251400B520A6 /* NSString+AXNetworkingMethods.h */,
-				ABC678331CF7251400B520A6 /* NSString+AXNetworkingMethods.m */,
 				ABC678341CF7251400B520A6 /* NSURLRequest+CTNetworkingMethods.h */,
 				ABC678351CF7251400B520A6 /* NSURLRequest+CTNetworkingMethods.m */,
-				ABC678361CF7251400B520A6 /* UIDevice+IdentifierAddition.h */,
-				ABC678371CF7251400B520A6 /* UIDevice+IdentifierAddition.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -381,8 +348,6 @@
 		ABC6785F1CF7251400B520A6 /* UDIDGenerator */ = {
 			isa = PBXGroup;
 			children = (
-				ABC678601CF7251400B520A6 /* CTUDIDGenerator.h */,
-				ABC678611CF7251400B520A6 /* CTUDIDGenerator.m */,
 			);
 			path = UDIDGenerator;
 			sourceTree = "<group>";
@@ -617,26 +582,19 @@
 			files = (
 				ABC678211CF7109400B520A6 /* TestAPIManager.m in Sources */,
 				ABC678231CF7109400B520A6 /* FireSingleAPI.m in Sources */,
-				ABC678701CF7251400B520A6 /* NSArray+AXNetworkingMethods.m in Sources */,
 				ABC678791CF7251400B520A6 /* CTAPIBaseManager.m in Sources */,
 				ABC677191CF707C100B520A6 /* TestViewController.m in Sources */,
 				ABC678961CF7271000B520A6 /* CTLoggerConfiguration.m in Sources */,
-				ABC678741CF7251400B520A6 /* NSString+AXNetworkingMethods.m in Sources */,
-				ABC678721CF7251400B520A6 /* NSMutableString+AXNetworkingMethods.m in Sources */,
 				ABC678851CF7251400B520A6 /* CTService.m in Sources */,
 				588032C21DCC8D17003AFF96 /* CTNetworkingConfiguration.m in Sources */,
-				ABC678841CF7251400B520A6 /* CTUDIDGenerator.m in Sources */,
 				ABC678771CF7251400B520A6 /* CTApiProxy.m in Sources */,
 				ABC6787B1CF7251400B520A6 /* CTCachedObject.m in Sources */,
-				ABC678761CF7251400B520A6 /* UIDevice+IdentifierAddition.m in Sources */,
 				ABC678831CF7251400B520A6 /* CTSignatureGenerator.m in Sources */,
 				ABC678811CF7251400B520A6 /* CTCommonParamsGenerator.m in Sources */,
 				ABC6787A1CF7251400B520A6 /* CTCache.m in Sources */,
 				ABC678821CF7251400B520A6 /* CTRequestGenerator.m in Sources */,
 				ABC6787E1CF7251400B520A6 /* CTLogger.m in Sources */,
-				ABC678731CF7251400B520A6 /* NSObject+AXNetworkingMethods.m in Sources */,
 				ABC678801CF7251400B520A6 /* CTURLResponse.m in Sources */,
-				ABC678711CF7251400B520A6 /* NSDictionary+AXNetworkingMethods.m in Sources */,
 				ABC678951CF7271000B520A6 /* CTAppContext.m in Sources */,
 				ABC678751CF7251400B520A6 /* NSURLRequest+CTNetworkingMethods.m in Sources */,
 				ABC6787D1CF7251400B520A6 /* CTLocationManager.m in Sources */,
