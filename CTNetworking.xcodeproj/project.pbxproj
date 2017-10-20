@@ -147,8 +147,7 @@
 				58DB1F691F98A6A200AF2A84 /* LGBaseAPICommand.h */,
 				58DB1F6A1F98A6A200AF2A84 /* LGBaseAPICommand.m */,
 			);
-			name = Command;
-			path = Components/Command;
+			path = Command;
 			sourceTree = "<group>";
 		};
 		58DB1F6B1F98A6A200AF2A84 /* Configurations */ = {
@@ -269,9 +268,8 @@
 		ABC678281CF7251400B520A6 /* CTNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				58DB1F661F98A6A200AF2A84 /* Command */,
-				58DB1F6B1F98A6A200AF2A84 /* Configurations */,
 				ABC678531CF7251400B520A6 /* CTNetworking.h */,
+				58DB1F6B1F98A6A200AF2A84 /* Configurations */,
 				ABC678291CF7251400B520A6 /* Categories */,
 				ABC678381CF7251400B520A6 /* Components */,
 				ABC678551CF7251400B520A6 /* Generators */,
@@ -305,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				ABC678471CF7251400B520A6 /* iPhoneTypeDefine.plist */,
+				58DB1F661F98A6A200AF2A84 /* Command */,
 				ABC678391CF7251400B520A6 /* APIProxy */,
 				ABC6783F1CF7251400B520A6 /* BaseAPIManager */,
 				ABC678421CF7251400B520A6 /* CacheComponents */,
