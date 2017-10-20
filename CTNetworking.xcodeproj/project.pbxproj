@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		118172816A888E8150338AE0 /* libPods-CTNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E991CD00AE580099C56CF4 /* libPods-CTNetworking.a */; };
-		588032C21DCC8D17003AFF96 /* CTNetworkingConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 588032C11DCC8D17003AFF96 /* CTNetworkingConfiguration.m */; };
 		58DB1F601F98A64E00AF2A84 /* NSArray+CTNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DB1F551F98A64E00AF2A84 /* NSArray+CTNetworkingMethods.m */; };
 		58DB1F611F98A64E00AF2A84 /* NSDictionary+CTNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DB1F571F98A64E00AF2A84 /* NSDictionary+CTNetworkingMethods.m */; };
 		58DB1F621F98A64E00AF2A84 /* NSMutableString+CTNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DB1F591F98A64E00AF2A84 /* NSMutableString+CTNetworkingMethods.m */; };
@@ -49,7 +48,6 @@
 /* Begin PBXFileReference section */
 		47AEE7F0CEEB2B4E104FE886 /* Pods-CTNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CTNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CTNetworking/Pods-CTNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 		4ADD3645D6296652217469EC /* Pods-CTNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CTNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-CTNetworking/Pods-CTNetworking.release.xcconfig"; sourceTree = "<group>"; };
-		588032C11DCC8D17003AFF96 /* CTNetworkingConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTNetworkingConfiguration.m; sourceTree = "<group>"; };
 		58DB1F541F98A64E00AF2A84 /* NSArray+CTNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CTNetworkingMethods.h"; sourceTree = "<group>"; };
 		58DB1F551F98A64E00AF2A84 /* NSArray+CTNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CTNetworkingMethods.m"; sourceTree = "<group>"; };
 		58DB1F561F98A64E00AF2A84 /* NSDictionary+CTNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CTNetworkingMethods.h"; sourceTree = "<group>"; };
@@ -430,26 +428,9 @@
 		ABC678881CF7271000B520A6 /* CTNetworkingCustoms */ = {
 			isa = PBXGroup;
 			children = (
-				ABC678891CF7271000B520A6 /* AppContext */,
-				ABC6788C1CF7271000B520A6 /* Configurations */,
 				ABC678911CF7271000B520A6 /* CustomServices */,
 			);
 			path = CTNetworkingCustoms;
-			sourceTree = "<group>";
-		};
-		ABC678891CF7271000B520A6 /* AppContext */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AppContext;
-			sourceTree = "<group>";
-		};
-		ABC6788C1CF7271000B520A6 /* Configurations */ = {
-			isa = PBXGroup;
-			children = (
-				588032C11DCC8D17003AFF96 /* CTNetworkingConfiguration.m */,
-			);
-			path = Configurations;
 			sourceTree = "<group>";
 		};
 		ABC678911CF7271000B520A6 /* CustomServices */ = {
@@ -652,7 +633,6 @@
 				58DB1F721F98A6A200AF2A84 /* LGBaseAPICommand.m in Sources */,
 				ABC678851CF7251400B520A6 /* CTService.m in Sources */,
 				58DB1F621F98A64E00AF2A84 /* NSMutableString+CTNetworkingMethods.m in Sources */,
-				588032C21DCC8D17003AFF96 /* CTNetworkingConfiguration.m in Sources */,
 				58DB1F751F98A6A200AF2A84 /* CTNetworkingConfigurationManager.m in Sources */,
 				ABC678771CF7251400B520A6 /* CTApiProxy.m in Sources */,
 				58DB1F641F98A64E00AF2A84 /* NSString+CTNetworkingMethods.m in Sources */,
