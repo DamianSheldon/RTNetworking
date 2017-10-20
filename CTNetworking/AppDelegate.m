@@ -7,9 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "CTServiceFactory.h"
-#import "CTHTTPConst.h"
-@interface AppDelegate ()<CTServiceFactoryDataSource>
+
+@interface AppDelegate ()
 
 @end
 
@@ -18,16 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [CTServiceFactory sharedInstance].dataSource = self;
     return YES;
 }
-
-
-#pragma mark - CTServiceFactoryDataSource
-- (NSDictionary<NSString *,NSString *> *)servicesKindsOfServiceFactory {
-    return @{kCTServiceGDMapV3: @"GDMapService"};
-}
-
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

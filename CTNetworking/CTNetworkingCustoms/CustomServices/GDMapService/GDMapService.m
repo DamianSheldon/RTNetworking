@@ -7,9 +7,14 @@
 //
 
 #import "GDMapService.h"
+#import "CTHTTPConst.h"
 #import "CTNetworkingConfigurationManager.h"
 
-NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
+NSString * const kBSUserTokenInvalidNotification = @"kBSUserTokenInvalidNotification";
+NSString * const kBSUserTokenIllegalNotification = @"kBSUserTokenIllegalNotification";
+
+NSString * const kBSUserTokenNotificationUserInfoKeyRequestToContinue = @"kBSUserTokenNotificationUserInfoKeyRequestToContinue";
+NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUserTokenNotificationUserInfoKeyManagerToContinue";
 
 @implementation GDMapService
 
