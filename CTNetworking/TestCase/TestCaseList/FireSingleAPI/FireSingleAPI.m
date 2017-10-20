@@ -52,7 +52,6 @@
 
 - (void)testMultiTestLoad {
     
-    [[CTRequestGenerator sharedInstance] rest];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         [self.testAPIManager loadData];
