@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CTNetworking"
-  s.version      = "1.2.1P"
+  s.version      = "1.2.2P"
   s.summary      = "The networking layer for iOS App."
 
   s.description  = <<-DESC
@@ -86,7 +86,7 @@ Pod::Spec.new do |s|
   #
 
   # s.source_files  = "CTNetworking/CTNetworking/**/*.{h,m}"
-  s.source_files  = 'CTNetworking/CTNetworking/**/*.{h,m}', 'CTNetworking/CTNetworkingCustoms/AppContext/*.{h,m}', 'CTNetworking/CTNetworkingCustoms/Configurations/*.{h,m,plist}' 
+  s.source_files  = 'CTNetworking/CTNetworking/**/*.{h,m}' 
 
   # s.public_header_files = "Classes/**/*.h"
 
