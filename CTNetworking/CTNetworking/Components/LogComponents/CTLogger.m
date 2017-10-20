@@ -127,7 +127,7 @@
     [actionDict addEntriesFromDictionary:params];
     [actionDict addEntriesFromDictionary:[CTCommonParamsGenerator commonParamsDictionaryForLog]];
     NSDictionary *logJsonDict = @{self.configParams.sendActionKey:[@[actionDict] CT_jsonString]};
-    [[CTApiProxy sharedInstance] callPOSTWithParams:logJsonDict serviceIdentifier:self.configParams.serviceType methodName:self.configParams.sendActionMethod success:nil fail:nil];
+//    [[CTApiProxy sharedInstance] callPOSTWithParams:logJsonDict serviceIdentifier:self.configParams.serviceType methodName:self.configParams.sendActionMethod success:nil fail:nil];
 }
 
 @end

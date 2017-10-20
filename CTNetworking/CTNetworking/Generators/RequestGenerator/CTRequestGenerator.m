@@ -44,24 +44,15 @@
     } else {
         urlString = [NSString stringWithFormat:@"%@/%@", service.apiBaseUrl, methodName];
     }
-
-    self = [super init];
-    [self initialRequestGenerator];
-    return self;
-}
-
-//
-- (void)initialRequestGenerator {
     
-    _httpRequestSerializer = [AFHTTPRequestSerializer serializer];
-    _httpRequestSerializer.timeoutInterval = [CTNetworkingConfigurationManager sharedInstance].apiNetworkingTimeoutSeconds;
-    _httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
-
-}
-
-- (NSURLRequest *)generateGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName
-{
-    return [self generateRequestWithServiceIdentifier:serviceIdentifier requestParams:requestParams methodName:methodName requestWithMethod:@"GET"];
+    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
+    
+    NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"GET" URLString:urlString parameters:requestParams error:NULL];
+    request.requestParams = requestParams;
+//    if ([CTAppContext sharedInstance].accessToken) {
+//        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+//    }
+    return request;
 }
 
 - (NSURLRequest *)generatePOSTRequestWithServiceClass:(Class)serviceClass requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName
@@ -73,9 +64,9 @@
     
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"POST" URLString:urlString parameters:requestParams error:NULL];
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
-    if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-    }
+//    if ([CTAppContext sharedInstance].accessToken) {
+//        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+//    }
     request.requestParams = requestParams;
     return request;
 }
@@ -89,9 +80,9 @@
     
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"PUT" URLString:urlString parameters:requestParams error:NULL];
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
-    if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-    }
+//    if ([CTAppContext sharedInstance].accessToken) {
+//        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+//    }
     request.requestParams = requestParams;
     return request;
 }
@@ -101,24 +92,14 @@
     CTService *service = [serviceClass new];
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", service.apiBaseUrl, service.apiVersion, methodName];
     
-    NSDictionary *totalRequestParams = [self totalRequestParamsByService:service requestParams:requestParams];
+    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
     
-    NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:method URLString:urlString parameters:totalRequestParams error:NULL];
-    
-    if (![method isEqualToString:@"GET"] && [CTNetworkingConfigurationManager sharedInstance].shouldSetParamsInHTTPBodyButGET) {
-        request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
-    }
-    
-    if ([service.child respondsToSelector:@selector(extraHttpHeadParmasWithMethodName:)]) {
-        NSDictionary *dict = [service.child extraHttpHeadParmasWithMethodName:methodName];
-        if (dict) {
-            [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-                [request setValue:obj forHTTPHeaderField:key];
-            }];
-        }
-    }
-    
-    request.requestParams = totalRequestParams;
+    NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"DELETE" URLString:urlString parameters:requestParams error:NULL];
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
+//    if ([CTAppContext sharedInstance].accessToken) {
+//        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+//    }
+    request.requestParams = requestParams;
     return request;
 }
 
@@ -127,29 +108,9 @@
 {
     if (_httpRequestSerializer == nil) {
         _httpRequestSerializer = [AFHTTPRequestSerializer serializer];
-        _httpRequestSerializer.timeoutInterval = [CTNetworkingConfiguration sharedNetworkConfiguration].timeoutSeconds;
+        _httpRequestSerializer.timeoutInterval = [CTNetworkingConfigurationManager sharedInstance].apiNetworkingTimeoutSeconds;
         _httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
     }
-    return [totalRequestParams copy];
+    return _httpRequestSerializer;
 }
-
-#pragma mark test
-
-- (void)rest {
-    
-    //self.httpRequestSerializer = nil;
-}
-
-#pragma mark - getters and setters
-//- (AFHTTPRequestSerializer *)httpRequestSerializer {
-//
-//    if (_httpRequestSerializer == nil) {
-//        
-//        _httpRequestSerializer = [AFHTTPRequestSerializer serializer];
-//        _httpRequestSerializer.timeoutInterval = [CTNetworkingConfigurationManager sharedInstance].apiNetworkingTimeoutSeconds;
-//        _httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
-//    }
-// 
-//    return _httpRequestSerializer;
-//}
 @end
