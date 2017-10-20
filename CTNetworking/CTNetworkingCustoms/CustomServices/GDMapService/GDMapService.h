@@ -8,11 +8,12 @@
 
 #import "CTService.h"
 
-extern NSString * const kBSUserTokenInvalidNotification;
-extern NSString * const kBSUserTokenIllegalNotification;
+extern NSString *const kBSUserTokenInvalidNotification;
+extern NSString *const kBSUserTokenIllegalNotification;
 
-extern NSString * const kBSUserTokenNotificationUserInfoKeyRequestToContinue;
-extern NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue;
+extern NSString *const kBSUserTokenNotificationUserInfoKeyRequestToContinue;
+extern NSString *const kBSUserTokenNotificationUserInfoKeyManagerToContinue;
+
 
 @interface GDMapService : CTService <CTServiceProtocol>
 

@@ -8,12 +8,15 @@
 
 #import "CTCachedObject.h"
 #import "CTNetworkingConfigurationManager.h"
+
+
 @interface CTCachedObject ()
 
 @property (nonatomic, copy, readwrite) NSData *content;
 @property (nonatomic, copy, readwrite) NSDate *lastUpdateTime;
 
 @end
+
 
 @implementation CTCachedObject
 
@@ -26,7 +29,7 @@
 - (BOOL)isOutdated
 {
     NSTimeInterval timeInterval = [[NSDate date] timeIntervalSinceDate:self.lastUpdateTime];
-    return timeInterval > [CTNetworkingConfigurationManager sharedInstance].cacheOutdateTimeSeconds ;
+    return timeInterval > [CTNetworkingConfigurationManager sharedInstance].cacheOutdateTimeSeconds;
 }
 
 - (void)setContent:(NSData *)content

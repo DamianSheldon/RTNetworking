@@ -9,19 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "CTCachedObject.h"
 
+
 @interface CTCache : NSObject
 
 + (instancetype)sharedInstance;
 
 - (NSString *)keyWithServiceIdentifier:(NSString *)serviceIdentifier
-                                    methodName:(NSString *)methodName
-                                 requestParams:(NSDictionary *)requestParams;
-
+                            methodName:(NSString *)methodName
+                         requestParams:(NSDictionary *)requestParams;
 
 
 - (NSData *)fetchCachedDataWithServiceIdentifier:(NSString *)serviceIdentifier
-                                methodName:(NSString *)methodName
-                             requestParams:(NSDictionary *)requestParams;
+                                      methodName:(NSString *)methodName
+                                   requestParams:(NSDictionary *)requestParams;
 
 - (void)saveCacheWithData:(NSData *)cachedData
         serviceIdentifier:(NSString *)serviceIdentifier
@@ -31,7 +31,6 @@
 - (void)deleteCacheWithServiceIdentifier:(NSString *)serviceIdentifier
                               methodName:(NSString *)methodName
                            requestParams:(NSDictionary *)requestParams;
-
 
 
 - (NSData *)fetchCachedDataWithKey:(NSString *)key;

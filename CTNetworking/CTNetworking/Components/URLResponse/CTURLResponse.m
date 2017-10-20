@@ -10,6 +10,7 @@
 #import "NSObject+CTNetworkingMethods.h"
 #import "NSURLRequest+CTNetworkingMethods.h"
 
+
 @interface CTURLResponse ()
 
 @property (nonatomic, assign, readwrite) CTURLResponseStatus status;
@@ -22,6 +23,7 @@
 @property (nonatomic, strong, readwrite) NSError *error;
 
 @end
+
 
 @implementation CTURLResponse
 
@@ -84,7 +86,7 @@
 {
     if (error) {
         CTURLResponseStatus result = CTURLResponseStatusErrorNoNetwork;
-        
+
         // 除了超时以外，所有错误都当成是无网络
         if (error.code == NSURLErrorTimedOut) {
             result = CTURLResponseStatusErrorTimeout;

@@ -8,6 +8,7 @@
 
 #import "CTLoggerConfiguration.h"
 
+
 @implementation CTLoggerConfiguration
 
 //- (void)configWithAppType:(CTAppType)appType

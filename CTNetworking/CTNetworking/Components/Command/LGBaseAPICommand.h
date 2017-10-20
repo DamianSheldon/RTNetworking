@@ -19,12 +19,12 @@
 @end
 
 
-
 @protocol CTAPICommand <NSObject>
 
 //- (void)excute;
 
 @end
+
 
 @interface LGBaseAPICommand : NSObject
 

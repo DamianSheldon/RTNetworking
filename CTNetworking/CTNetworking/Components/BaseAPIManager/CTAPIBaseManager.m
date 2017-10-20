@@ -13,19 +13,18 @@
 #import "CTApiProxy.h"
 #import "CTNetworkingConfigurationManager.h"
 
-#define AXCallAPI(REQUEST_METHOD, REQUEST_ID)                                                   \
-{                                                                                               \
-    __weak typeof(self) weakSelf = self;                                                        \
-    REQUEST_ID = [[CTApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiParams serviceClass:self.child.serviceClass methodName:self.child.methodName success:^(CTURLResponse *response) { \
-        __strong typeof(weakSelf) strongSelf = weakSelf;                                        \
-        [strongSelf successedOnCallingAPI:response];                                            \
-    } fail:^(CTURLResponse *response) {                                                         \
-        __strong typeof(weakSelf) strongSelf = weakSelf;                                        \
-        [strongSelf failedOnCallingAPI:response withErrorType:CTAPIManagerErrorTypeDefault];    \
-    }];                                                                                         \
-    [self.requestIdList addObject:@(REQUEST_ID)];                                                   \
-}
-
+#define AXCallAPI(REQUEST_METHOD, REQUEST_ID)                                                                                                                                                            \
+    {                                                                                                                                                                                                    \
+        __weak typeof(self) weakSelf = self;                                                                                                                                                             \
+        REQUEST_ID = [[CTApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiParams serviceClass:self.child.serviceClass methodName:self.child.methodName success:^(CTURLResponse * response) { \
+            __strong typeof(weakSelf) strongSelf = weakSelf;                                                                                                                                             \
+            [strongSelf successedOnCallingAPI:response];                                                                                                                                                 \
+        } fail:^(CTURLResponse * response) {                                                                                                                                                             \
+            __strong typeof(weakSelf) strongSelf = weakSelf;                                                                                                                                             \
+            [strongSelf failedOnCallingAPI:response withErrorType:CTAPIManagerErrorTypeDefault];                                                                                                         \
+        }];                                                                                                                                                                                              \
+        [self.requestIdList addObject:@(REQUEST_ID)];                                                                                                                                                    \
+    }
 
 
 @interface CTAPIBaseManager ()
@@ -41,6 +40,7 @@
 
 @end
 
+
 @implementation CTAPIBaseManager
 
 #pragma mark - life cycle
@@ -51,17 +51,17 @@
         _delegate = nil;
         _validator = nil;
         _paramSource = nil;
-        
+
         _fetchedRawData = nil;
-        
+
         _errorMessage = nil;
         _errorType = CTAPIManagerErrorTypeDefault;
-        
+
         if ([self conformsToProtocol:@protocol(CTAPIManager)]) {
-            self.child = (id <CTAPIManager>)self;
+            self.child = (id<CTAPIManager>)self;
         } else {
-            self.child = (id <CTAPIManager>)self;
-            NSException *exception = [[NSException alloc] initWithName:@"CTAPIBaseManager提示" reason:[NSString stringWithFormat:@"%@没有遵循CTAPIManager协议",self.child] userInfo:nil];
+            self.child = (id<CTAPIManager>)self;
+            NSException *exception = [[NSException alloc] initWithName:@"CTAPIBaseManager提示" reason:[NSString stringWithFormat:@"%@没有遵循CTAPIManager协议", self.child] userInfo:nil];
             @throw exception;
         }
     }
@@ -98,11 +98,10 @@
     return resultData;
 }
 
-- (id)fetchFailedRequstMsg:(id<CTAPIManagerDataReformer>)reformer {
-    
+- (id)fetchFailedRequstMsg:(id<CTAPIManagerDataReformer>)reformer
+{
     id resultData = nil;
     if ([reformer respondsToSelector:@selector(manager:failedReform:)]) {
-        
         resultData = [reformer manager:self failedReform:self.fetchedRawData];
     } else
         resultData = [self.fetchedRawData mutableCopy];
@@ -124,21 +123,19 @@
     NSDictionary *apiParams = [self reformParams:params];
     if ([self shouldCallAPIWithParams:apiParams]) {
         if ([self.validator manager:self isCorrectWithParamsData:apiParams]) {
-            
             if ([self.child shouldLoadFromNative]) {
                 [self loadDataFromNative];
             }
-            
+
             // 先检查一下是否有缓存
             if ([self shouldCache] && [self hasCacheWithParams:apiParams]) {
                 return 0;
             }
-            
+
             // 实际的网络请求
             if ([self isReachable]) {
                 self.isLoading = YES;
-                switch (self.child.requestType)
-                {
+                switch (self.child.requestType) {
                     case CTAPIManagerRequestTypeGet:
                         AXCallAPI(GET, requestId);
                         break;
@@ -154,12 +151,12 @@
                     default:
                         break;
                 }
-                
+
                 NSMutableDictionary *params = [apiParams mutableCopy];
                 params[kCTAPIBaseManagerRequestID] = @(requestId);
                 [self afterCallingAPIWithParams:params];
                 return requestId;
-                
+
             } else {
                 [self failedOnCallingAPI:nil withErrorType:CTAPIManagerErrorTypeNoNetWork];
                 return requestId;
@@ -177,13 +174,13 @@
 {
     self.isLoading = NO;
     self.response = response;
-    
+
     if ([self.child shouldLoadFromNative]) {
         if (response.isCache == NO) {
             [[NSUserDefaults standardUserDefaults] setObject:response.responseData forKey:[self.child methodName]];
         }
     }
-    
+
     if (response.content) {
         self.fetchedRawData = [response.content copy];
     } else {
@@ -191,11 +188,10 @@
     }
     [self removeRequestIdWithRequestID:response.requestId];
     if ([self.validator manager:self isCorrectWithCallBackData:response.content]) {
-        
         if ([self shouldCache] && !response.isCache) {
             [self.cache saveCacheWithData:response.responseData serviceIdentifier:self.child.serviceType methodName:self.child.methodName requestParams:response.requestParams];
         }
-        
+
         if ([self beforePerformSuccessWithResponse:response]) {
             if ([self.child shouldLoadFromNative]) {
                 if (response.isCache == YES) {
@@ -227,10 +223,6 @@
 }
 
 
-
-
-
-
 #pragma mark - method for interceptor
 
 /*
@@ -247,9 +239,9 @@
 - (BOOL)beforePerformSuccessWithResponse:(CTURLResponse *)response
 {
     BOOL result = YES;
-    
+
     self.errorType = CTAPIManagerErrorTypeSuccess;
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager: beforePerformSuccessWithResponse:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:beforePerformSuccessWithResponse:)]) {
         result = [self.interceptor manager:self beforePerformSuccessWithResponse:response];
     }
     return result;
@@ -310,7 +302,7 @@
 {
     IMP childIMP = [self.child methodForSelector:@selector(reformParams:)];
     IMP selfIMP = [self methodForSelector:@selector(reformParams:)];
-    
+
     if (childIMP == selfIMP) {
         return params;
     } else {
@@ -350,14 +342,14 @@
     NSString *serviceIdentifier = self.child.serviceType;
     NSString *methodName = self.child.methodName;
     NSData *result = [self.cache fetchCachedDataWithServiceIdentifier:serviceIdentifier methodName:methodName requestParams:params];
-    
+
     if (result == nil) {
         return NO;
     }
-    
+
     __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        __strong typeof (weakSelf) strongSelf = weakSelf;
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         CTURLResponse *response = [[CTURLResponse alloc] initWithData:result];
         response.requestParams = params;
         [CTLogger logDebugInfoWithCachedResponse:response methodName:methodName serviceIdentifier:[self.child.serviceClass new]];

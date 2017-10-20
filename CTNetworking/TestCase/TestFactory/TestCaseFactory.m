@@ -10,16 +10,17 @@
 
 #import "FireSingleAPI.h"
 
+
 @implementation TestCaseFactory
 
 - (UIViewController *)testCaseWithType:(TestCaseType)testCaseType
 {
     UIViewController *testCase = nil;
-    
+
     if (testCaseType == TestCaseTypeFireSingleAPI) {
         testCase = [[FireSingleAPI alloc] init];
     }
-    
+
     return testCase;
 }
 

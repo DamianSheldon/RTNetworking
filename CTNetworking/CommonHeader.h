@@ -13,7 +13,7 @@
 
 typedef NS_ENUM(NSUInteger, TestCaseType) {
     TestCaseTypeFireSingleAPI,
-    
+
 };
 
 #endif /* CommonHeader_h */

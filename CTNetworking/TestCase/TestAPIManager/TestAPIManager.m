@@ -10,12 +10,14 @@
 #import "GDMapService.h"
 #import "CTHTTPConst.h"
 
-NSString * const kTestAPIManagerParamsKeyLatitude = @"kTestAPIManagerParamsKeyLatitude";
-NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyLongitude";
+NSString *const kTestAPIManagerParamsKeyLatitude = @"kTestAPIManagerParamsKeyLatitude";
+NSString *const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyLongitude";
+
 
 @interface TestAPIManager () <CTAPIManagerValidator>
 
 @end
+
 
 @implementation TestAPIManager
 
@@ -75,7 +77,7 @@ NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyL
     if ([data[@"status"] isEqualToString:@"0"]) {
         return YES;
     }
-    
+
     return YES;
 }
 

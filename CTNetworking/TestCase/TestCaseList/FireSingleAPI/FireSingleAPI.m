@@ -11,6 +11,7 @@
 #import <UIView+LayoutMethods.h>
 #import "CTRequestGenerator.h"
 
+
 @interface FireSingleAPI () <CTAPIManagerParamSource, CTAPIManagerCallBackDelegate>
 
 @property (nonatomic, strong) TestAPIManager *testAPIManager;
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) UIButton *multithreadTest;
 
 @end
+
 
 @implementation FireSingleAPI
 
@@ -50,40 +52,38 @@
 
 #pragma mark - private method
 
-- (void)testMultiTestLoad {
-    
+- (void)testMultiTestLoad
+{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
+
         [self.testAPIManager loadData];
     });
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
+
         [self.twoApi loadData];
     });
 
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
+
         [self.threeApi loadData];
     });
 
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
+
         [self.foureApi loadData];
     });
 
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
+
         [self.fiveApi loadData];
     });
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
+
         [self.sixApi loadData];
     });
-
-
 }
-- (void)layout {
-    
+- (void)layout
+{
     [self layoutResultLable];
     [self layoutMultiTestButton];
 }
@@ -94,8 +94,8 @@
     [self.resultLable centerYEqualToView:self.view];
 }
 
-- (void)layoutMultiTestButton {
-    
+- (void)layoutMultiTestButton
+{
     self.multithreadTest.x = 100;
     self.multithreadTest.y = 200;
     self.multithreadTest.width = 100;
@@ -105,14 +105,14 @@
 - (NSDictionary *)paramsForApi:(CTAPIBaseManager *)manager
 {
     NSDictionary *params = @{};
-    
+
     if (manager == self.testAPIManager) {
         params = @{
-                   kTestAPIManagerParamsKeyLatitude:@(31.228000),
-                   kTestAPIManagerParamsKeyLongitude:@(121.454290)
-                   };
+            kTestAPIManagerParamsKeyLatitude : @(31.228000),
+            kTestAPIManagerParamsKeyLongitude : @(121.454290)
+        };
     }
-    
+
     return params;
 }
 
@@ -155,8 +155,8 @@
     return _resultLable;
 }
 
-- (TestAPIManager *)twoApi {
-    
+- (TestAPIManager *)twoApi
+{
     if (_twoApi == nil) {
         _twoApi = [[TestAPIManager alloc] init];
         _twoApi.delegate = self;
@@ -165,8 +165,8 @@
     return _twoApi;
 }
 
-- (TestAPIManager *)threeApi {
-    
+- (TestAPIManager *)threeApi
+{
     if (_threeApi == nil) {
         _threeApi = [[TestAPIManager alloc] init];
         _threeApi.delegate = self;
@@ -175,8 +175,8 @@
     return _threeApi;
 }
 
-- (TestAPIManager *)foureApi {
-    
+- (TestAPIManager *)foureApi
+{
     if (_foureApi == nil) {
         _foureApi = [[TestAPIManager alloc] init];
         _foureApi.delegate = self;
@@ -184,8 +184,8 @@
     }
     return _foureApi;
 }
-- (TestAPIManager *)fiveApi {
-    
+- (TestAPIManager *)fiveApi
+{
     if (_fiveApi == nil) {
         _fiveApi = [[TestAPIManager alloc] init];
         _fiveApi.delegate = self;
@@ -193,8 +193,8 @@
     }
     return _fiveApi;
 }
-- (TestAPIManager *)sixApi {
-    
+- (TestAPIManager *)sixApi
+{
     if (_sixApi == nil) {
         _sixApi = [[TestAPIManager alloc] init];
         _sixApi.delegate = self;
@@ -202,10 +202,9 @@
     }
     return _sixApi;
 }
-- (UIButton *)multithreadTest {
-    
+- (UIButton *)multithreadTest
+{
     if (!_multithreadTest) {
-        
         _multithreadTest = [[UIButton alloc] init];
         [_multithreadTest setTitle:@"test" forState:UIControlStateNormal];
         [_multithreadTest setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];

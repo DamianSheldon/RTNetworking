@@ -43,6 +43,7 @@
 
 @end
 
+
 @interface CTService : NSObject
 
 @property (nonatomic, strong, readonly) NSString *publicKey;

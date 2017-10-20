@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CTURLResponse.h"
 
-typedef void(^AXCallback)(CTURLResponse *response);
+typedef void (^AXCallback)(CTURLResponse *response);
+
 
 @interface CTApiProxy : NSObject
 

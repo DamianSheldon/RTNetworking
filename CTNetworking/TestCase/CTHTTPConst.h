@@ -8,4 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-extern  NSString * const kCTServiceGDMapV3;
+extern NSString *const kCTServiceGDMapV3;

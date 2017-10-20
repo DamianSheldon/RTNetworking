@@ -12,6 +12,7 @@
 #import "NSString+CTNetworkingMethods.h"
 #import "NSArray+CTNetworkingMethods.h"
 
+
 @implementation CTSignatureGenerator
 
 #pragma mark - public methods
@@ -26,7 +27,7 @@
     NSString *part1 = [NSString stringWithFormat:@"%@/%@", apiVersion, methodName];
     NSString *part2 = [allParams CT_urlParamsStringSignature:YES];
     NSString *part3 = privateKey;
-    
+
     NSString *beforeSign = [NSString stringWithFormat:@"%@%@%@", part1, part2, part3];
     return [beforeSign CT_md5];
 }
@@ -51,11 +52,11 @@
     } else {
         return @"";
     }
-    
+
     NSString *part4 = privateKey;
-    
+
     NSString *beforeSign = [NSString stringWithFormat:@"%@%@%@%@", part1, part2, part3, part4];
-    
+
     return [beforeSign CT_md5];
 }
 

@@ -9,6 +9,7 @@
 #import "NSDictionary+CTNetworkingMethods.h"
 #import "NSArray+CTNetworkingMethods.h"
 
+
 @implementation NSDictionary (CTNetworkingMethods)
 
 /** 字符串前面是没有问号的，如果用于POST，那就不用加问号，如果用于GET，就要加个问号 */
@@ -34,7 +35,7 @@
             obj = [NSString stringWithFormat:@"%@", obj];
         }
         if (!isForSignature) {
-            obj = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,  (CFStringRef)obj,  NULL,  (CFStringRef)@"!*'();:@&;=+$,/?%#[]",  kCFStringEncodingUTF8));
+            obj = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)obj, NULL, (CFStringRef) @"!*'();:@&;=+$,/?%#[]", kCFStringEncodingUTF8));
         }
         if ([obj length] > 0) {
             [result addObject:[NSString stringWithFormat:@"%@=%@", key, obj]];

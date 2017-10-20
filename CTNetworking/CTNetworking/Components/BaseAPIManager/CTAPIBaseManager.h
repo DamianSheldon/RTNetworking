@@ -12,9 +12,7 @@
 @class CTAPIBaseManager;
 
 // 在调用成功之后的params字典里面，用这个key可以取出requestID
-static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestID";
-
-
+static NSString *const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestID";
 
 
 /*
@@ -37,11 +35,6 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
  */
 
 
-
-
-
-
-
 /*************************************************************************************************/
 /*                               CTAPIManagerApiCallBackDelegate                                 */
 /*************************************************************************************************/
@@ -52,9 +45,6 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
 - (void)managerCallAPIDidSuccess:(CTAPIBaseManager *)manager;
 - (void)managerCallAPIDidFailed:(CTAPIBaseManager *)manager;
 @end
-
-
-
 
 
 /*************************************************************************************************/
@@ -144,11 +134,8 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
 - (id)manager:(CTAPIBaseManager *)manager reformData:(NSDictionary *)data;
 //用于获取服务器返回的错误信息
 @optional
--(id)manager:(CTAPIBaseManager *)manager failedReform:(NSDictionary *)data;
+- (id)manager:(CTAPIBaseManager *)manager failedReform:(NSDictionary *)data;
 @end
-
-
-
 
 
 /*************************************************************************************************/
@@ -192,9 +179,6 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
 @end
 
 
-
-
-
 /*************************************************************************************************/
 /*                                CTAPIManagerParamSourceDelegate                                */
 /*************************************************************************************************/
@@ -209,25 +193,21 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
  你不应该在回调数据验证函数里面设置这些值，事实上，在任何派生的子类里面你都不应该自己设置manager的这个状态，baseManager已经帮你搞定了。
  强行修改manager的这个状态有可能会造成程序流程的改变，容易造成混乱。
  */
-typedef NS_ENUM (NSUInteger, CTAPIManagerErrorType){
-    CTAPIManagerErrorTypeDefault,       //没有产生过API请求，这个是manager的默认状态。
-    CTAPIManagerErrorTypeSuccess,       //API请求成功且返回数据正确，此时manager的数据是可以直接拿来使用的。
-    CTAPIManagerErrorTypeNoContent,     //API请求成功但返回数据不正确。如果回调数据验证函数返回值为NO，manager的状态就会是这个。
-    CTAPIManagerErrorTypeParamsError,   //参数错误，此时manager不会调用API，因为参数验证是在调用API之前做的。
-    CTAPIManagerErrorTypeTimeout,       //请求超时。CTAPIProxy设置的是20秒超时，具体超时时间的设置请自己去看CTAPIProxy的相关代码。
-    CTAPIManagerErrorTypeNoNetWork      //网络不通。在调用API之前会判断一下当前网络是否通畅，这个也是在调用API之前验证的，和上面超时的状态是有区别的。
+typedef NS_ENUM(NSUInteger, CTAPIManagerErrorType) {
+    CTAPIManagerErrorTypeDefault,     //没有产生过API请求，这个是manager的默认状态。
+    CTAPIManagerErrorTypeSuccess,     //API请求成功且返回数据正确，此时manager的数据是可以直接拿来使用的。
+    CTAPIManagerErrorTypeNoContent,   //API请求成功但返回数据不正确。如果回调数据验证函数返回值为NO，manager的状态就会是这个。
+    CTAPIManagerErrorTypeParamsError, //参数错误，此时manager不会调用API，因为参数验证是在调用API之前做的。
+    CTAPIManagerErrorTypeTimeout,     //请求超时。CTAPIProxy设置的是20秒超时，具体超时时间的设置请自己去看CTAPIProxy的相关代码。
+    CTAPIManagerErrorTypeNoNetWork    //网络不通。在调用API之前会判断一下当前网络是否通畅，这个也是在调用API之前验证的，和上面超时的状态是有区别的。
 };
 
-typedef NS_ENUM (NSUInteger, CTAPIManagerRequestType){
+typedef NS_ENUM(NSUInteger, CTAPIManagerRequestType) {
     CTAPIManagerRequestTypeGet,
     CTAPIManagerRequestTypePost,
     CTAPIManagerRequestTypePut,
     CTAPIManagerRequestTypeDelete
 };
-
-
-
-
 
 
 /*************************************************************************************************/
@@ -255,10 +235,6 @@ typedef NS_ENUM (NSUInteger, CTAPIManagerRequestType){
 @end
 
 
-
-
-
-
 /*************************************************************************************************/
 /*                                    CTAPIManagerInterceptor                                    */
 /*************************************************************************************************/
@@ -278,8 +254,6 @@ typedef NS_ENUM (NSUInteger, CTAPIManagerRequestType){
 - (void)manager:(CTAPIBaseManager *)manager afterCallingAPIWithParams:(NSDictionary *)params;
 
 @end
-
-
 
 
 /*************************************************************************************************/

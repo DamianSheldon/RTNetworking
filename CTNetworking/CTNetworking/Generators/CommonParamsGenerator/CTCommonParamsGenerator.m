@@ -9,18 +9,17 @@
 #import "CTCommonParamsGenerator.h"
 #import "NSDictionary+CTNetworkingMethods.h"
 
+
 @implementation CTCommonParamsGenerator
 
 + (NSDictionary *)commonParamsDictionary
 {
-    return @{
-             };
+    return @{};
 }
 
 + (NSDictionary *)commonParamsDictionaryForLog
 {
-    return @{
-             };
+    return @{};
 }
 
 @end

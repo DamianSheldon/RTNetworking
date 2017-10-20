@@ -8,4 +8,4 @@
 
 #import "CTHTTPConst.h"
 
-NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
+NSString *const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";

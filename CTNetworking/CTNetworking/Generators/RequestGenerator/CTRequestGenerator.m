@@ -16,11 +16,14 @@
 #import "CTLogger.h"
 #import "NSURLRequest+CTNetworkingMethods.h"
 #import "CTNetworkingConfigurationManager.h"
+
+
 @interface CTRequestGenerator ()
 
 @property (nonatomic, strong) AFHTTPRequestSerializer *httpRequestSerializer;
 
 @end
+
 
 @implementation CTRequestGenerator
 #pragma mark - public methods
@@ -29,7 +32,7 @@
     static dispatch_once_t onceToken;
     static CTRequestGenerator *sharedInstance = nil;
     dispatch_once(&onceToken, ^{
-       
+
         sharedInstance = [[CTRequestGenerator alloc] init];
     });
     return sharedInstance;
@@ -44,14 +47,14 @@
     } else {
         urlString = [NSString stringWithFormat:@"%@/%@", service.apiBaseUrl, methodName];
     }
-    
+
     [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
-    
+
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"GET" URLString:urlString parameters:requestParams error:NULL];
     request.requestParams = requestParams;
-//    if ([CTAppContext sharedInstance].accessToken) {
-//        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-//    }
+    //    if ([CTAppContext sharedInstance].accessToken) {
+    //        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+    //    }
     return request;
 }
 
@@ -59,14 +62,14 @@
 {
     CTService *service = [serviceClass new];
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", service.apiBaseUrl, service.apiVersion, methodName];
-    
+
     [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
-    
+
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"POST" URLString:urlString parameters:requestParams error:NULL];
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
-//    if ([CTAppContext sharedInstance].accessToken) {
-//        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-//    }
+    //    if ([CTAppContext sharedInstance].accessToken) {
+    //        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+    //    }
     request.requestParams = requestParams;
     return request;
 }
@@ -75,14 +78,14 @@
 {
     CTService *service = [serviceClass new];
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", service.apiBaseUrl, service.apiVersion, methodName];
-    
+
     [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
-    
+
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"PUT" URLString:urlString parameters:requestParams error:NULL];
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
-//    if ([CTAppContext sharedInstance].accessToken) {
-//        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-//    }
+    //    if ([CTAppContext sharedInstance].accessToken) {
+    //        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+    //    }
     request.requestParams = requestParams;
     return request;
 }
@@ -91,14 +94,14 @@
 {
     CTService *service = [serviceClass new];
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", service.apiBaseUrl, service.apiVersion, methodName];
-    
+
     [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
-    
+
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"DELETE" URLString:urlString parameters:requestParams error:NULL];
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
-//    if ([CTAppContext sharedInstance].accessToken) {
-//        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-//    }
+    //    if ([CTAppContext sharedInstance].accessToken) {
+    //        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+    //    }
     request.requestParams = requestParams;
     return request;
 }

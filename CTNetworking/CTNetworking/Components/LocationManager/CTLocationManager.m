@@ -8,6 +8,7 @@
 
 #import "CTLocationManager.h"
 
+
 @interface CTLocationManager () <CLLocationManagerDelegate>
 
 @property (nonatomic, assign, readwrite) CTLocationManagerLocationResult locationResult;
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
+
 
 @implementation CTLocationManager
 
@@ -67,7 +69,7 @@
     if (self.locationStatus == CTLocationManagerLocationServiceStatusNotDetermined) {
         return;
     }
-    
+
     //如果正在定位中，那么也不会通知到外面
     if (self.locationResult == CTLocationManagerLocationResultLocating) {
         return;
@@ -103,22 +105,22 @@
     CTLocationManagerLocationServiceStatus authorizationStatus = [self locationServiceStatus];
     if (authorizationStatus == CTLocationManagerLocationServiceStatusOK && serviceEnable) {
         result = YES;
-    }else if (authorizationStatus == CTLocationManagerLocationServiceStatusNotDetermined) {
+    } else if (authorizationStatus == CTLocationManagerLocationServiceStatusNotDetermined) {
         result = YES;
-    }else{
+    } else {
         result = NO;
     }
-    
+
     if (serviceEnable && result) {
         result = YES;
-    }else{
+    } else {
         result = NO;
     }
-    
+
     if (result == NO) {
         [self failedLocationWithResultType:CTLocationManagerLocationResultFail statusType:self.locationStatus];
     }
-    
+
     return result;
 }
 
@@ -143,16 +145,16 @@
             case kCLAuthorizationStatusNotDetermined:
                 self.locationStatus = CTLocationManagerLocationServiceStatusNotDetermined;
                 break;
-                
-            case kCLAuthorizationStatusAuthorizedAlways :
+
+            case kCLAuthorizationStatusAuthorizedAlways:
             case kCLAuthorizationStatusAuthorizedWhenInUse:
                 self.locationStatus = CTLocationManagerLocationServiceStatusOK;
                 break;
-                
+
             case kCLAuthorizationStatusDenied:
                 self.locationStatus = CTLocationManagerLocationServiceStatusNoAuthorization;
                 break;
-                
+
             default:
                 break;
         }

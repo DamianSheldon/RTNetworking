@@ -12,8 +12,9 @@
 #import "CTLogger.h"
 #import "NSURLRequest+CTNetworkingMethods.h"
 
-static NSString * const kAXApiProxyDispatchItemKeyCallbackSuccess = @"kAXApiProxyDispatchItemCallbackSuccess";
-static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDispatchItemCallbackFail";
+static NSString *const kAXApiProxyDispatchItemKeyCallbackSuccess = @"kAXApiProxyDispatchItemCallbackSuccess";
+static NSString *const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDispatchItemCallbackFail";
+
 
 @interface CTApiProxy ()
 
@@ -24,6 +25,7 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
 
 @end
+
 
 @implementation CTApiProxy
 #pragma mark - getters and setters
@@ -103,25 +105,24 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
 /** 这个函数存在的意义在于，如果将来要把AFNetworking换掉，只要修改这个函数的实现即可。 */
 - (NSNumber *)callApiWithRequest:(NSURLRequest *)request success:(AXCallback)success fail:(AXCallback)fail
 {
-    
     NSLog(@"\n==================================\n\nRequest Start: \n\n %@\n\n==================================", request.URL);
-    
+
     // 跑到这里的block的时候，就已经是主线程了。
     __block NSURLSessionDataTask *dataTask = nil;
-    dataTask = [self.sessionManager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+    dataTask = [self.sessionManager dataTaskWithRequest:request completionHandler:^(NSURLResponse *_Nonnull response, id _Nullable responseObject, NSError *_Nullable error) {
         NSNumber *requestID = @([dataTask taskIdentifier]);
         [self.dispatchTable removeObjectForKey:requestID];
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         NSData *responseData = responseObject;
         NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-        
+
         if (error) {
             [CTLogger logDebugInfoWithResponse:httpResponse
                                 responseString:responseString
                                        request:request
                                          error:error];
             CTURLResponse *CTResponse = [[CTURLResponse alloc] initWithResponseString:responseString requestId:requestID request:request responseData:responseData error:error];
-            fail?fail(CTResponse):nil;
+            fail ? fail(CTResponse) : nil;
         } else {
             // 检查http response是否成立。
             [CTLogger logDebugInfoWithResponse:httpResponse
@@ -129,15 +130,15 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
                                        request:request
                                          error:NULL];
             CTURLResponse *CTResponse = [[CTURLResponse alloc] initWithResponseString:responseString requestId:requestID request:request responseData:responseData status:CTURLResponseStatusSuccess];
-            success?success(CTResponse):nil;
+            success ? success(CTResponse) : nil;
         }
     }];
-    
+
     NSNumber *requestId = @([dataTask taskIdentifier]);
-    
+
     self.dispatchTable[requestId] = dataTask;
     [dataTask resume];
-    
+
     return requestId;
 }
 

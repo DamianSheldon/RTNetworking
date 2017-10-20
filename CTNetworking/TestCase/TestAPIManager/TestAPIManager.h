@@ -8,8 +8,9 @@
 
 #import "CTNetworking.h"
 
-extern NSString * const kTestAPIManagerParamsKeyLatitude;
-extern NSString * const kTestAPIManagerParamsKeyLongitude;
+extern NSString *const kTestAPIManagerParamsKeyLatitude;
+extern NSString *const kTestAPIManagerParamsKeyLongitude;
+
 
 @interface TestAPIManager : CTAPIBaseManager <CTAPIManager>
 

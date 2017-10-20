@@ -9,11 +9,14 @@
 #import "CTCache.h"
 #import "NSDictionary+CTNetworkingMethods.h"
 #import "CTNetworkingConfigurationManager.h"
+
+
 @interface CTCache ()
 
 @property (nonatomic, strong) NSCache *cache;
 
 @end
+
 
 @implementation CTCache
 
@@ -24,7 +27,7 @@
         _cache = [[NSCache alloc] init];
         _cache.countLimit = [CTNetworkingConfigurationManager sharedInstance].cacheCountLimit;
     }
-return _cache;
+    return _cache;
 }
 
 #pragma mark - life cycle
@@ -48,7 +51,8 @@ return _cache;
 
 - (void)saveCacheWithData:(NSData *)cachedData
         serviceIdentifier:(NSString *)serviceIdentifier
-               methodName:(NSString *)methodName requestParams:(NSDictionary *)requestParams
+               methodName:(NSString *)methodName
+            requestParams:(NSDictionary *)requestParams
 {
     [self saveCacheWithData:cachedData key:[self keyWithServiceIdentifier:serviceIdentifier methodName:methodName requestParams:requestParams]];
 }

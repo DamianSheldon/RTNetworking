@@ -10,8 +10,9 @@
 #import <UIView+LayoutMethods.h>
 #import "TestCaseFactory.h"
 
-NSString * const kBSDataSourceItemKeyTestCaseType = @"kBSDataSourceItemKeyTestCaseType";
-NSString * const kBSDataSourceItemKeyTestCaseTitle = @"kBSDataSourceItemKeyTestCaseTitle";
+NSString *const kBSDataSourceItemKeyTestCaseType = @"kBSDataSourceItemKeyTestCaseType";
+NSString *const kBSDataSourceItemKeyTestCaseTitle = @"kBSDataSourceItemKeyTestCaseTitle";
+
 
 @interface TestViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -22,12 +23,14 @@ NSString * const kBSDataSourceItemKeyTestCaseTitle = @"kBSDataSourceItemKeyTestC
 
 @end
 
+
 @implementation TestViewController
 
 #pragma mark - life cycle
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
+
     [self.view addSubview:self.tableView];
     [self configureConstraintsForTableView];
 }
@@ -35,14 +38,14 @@ NSString * const kBSDataSourceItemKeyTestCaseTitle = @"kBSDataSourceItemKeyTestC
 //- (void)viewWillAppear:(BOOL)animated
 //{
 //    [super viewWillAppear:animated];
-//    
+//
 //    [self.tableView fill];
 //}
 
 - (void)configureConstraintsForTableView
 {
     [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
+
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
@@ -77,7 +80,7 @@ NSString * const kBSDataSourceItemKeyTestCaseTitle = @"kBSDataSourceItemKeyTestC
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        
+
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     }
     return _tableView;
@@ -87,11 +90,11 @@ NSString * const kBSDataSourceItemKeyTestCaseTitle = @"kBSDataSourceItemKeyTestC
 {
     if (_dataSource == nil) {
         _dataSource = @[
-                        @{
-                            kBSDataSourceItemKeyTestCaseType:@(TestCaseTypeFireSingleAPI),
-                            kBSDataSourceItemKeyTestCaseTitle:@"fire single api"
-                            }
-                        ];
+            @{
+                kBSDataSourceItemKeyTestCaseType : @(TestCaseTypeFireSingleAPI),
+                kBSDataSourceItemKeyTestCaseTitle : @"fire single api"
+            }
+        ];
     }
     return _dataSource;
 }

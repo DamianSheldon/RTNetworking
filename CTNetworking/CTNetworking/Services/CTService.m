@@ -9,11 +9,13 @@
 #import "CTService.h"
 #import "NSObject+CTNetworkingMethods.h"
 
-@interface CTService()
+
+@interface CTService ()
 
 @property (nonatomic, weak, readwrite) id<CTServiceProtocol> child;
 
 @end
+
 
 @implementation CTService
 
@@ -28,7 +30,8 @@
     return self;
 }
 
-- (NSString *)urlGeneratingRuleByMethodName:(NSString *)methodName {
+- (NSString *)urlGeneratingRuleByMethodName:(NSString *)methodName
+{
     NSString *urlString = nil;
     if (self.apiVersion.length != 0) {
         urlString = [NSString stringWithFormat:@"%@/%@/%@", self.apiBaseUrl, self.apiVersion, methodName];
