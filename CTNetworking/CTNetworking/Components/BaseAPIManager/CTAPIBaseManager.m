@@ -10,7 +10,6 @@
 #import "CTNetworking.h"
 #import "CTCache.h"
 #import "CTLogger.h"
-#import "CTAppContext.h"
 #import "CTApiProxy.h"
 #import "CTNetworkingConfigurationManager.h"
 
@@ -217,32 +216,10 @@
 
 - (void)failedOnCallingAPI:(CTURLResponse *)response withErrorType:(CTAPIManagerErrorType)errorType
 {
-    NSString *serviceIdentifier = self.child.serviceType;
-    CTService *service = [[CTServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
-    
     self.isLoading = NO;
     self.response = response;
-    BOOL needCallBack = YES;
-    
-    if ([service.child respondsToSelector:@selector(shouldCallBackByFailedOnCallingAPI:)]) {
-        needCallBack = [service.child shouldCallBackByFailedOnCallingAPI:response];
-    }
-    
-    //由service决定是否结束回调
-    if (!needCallBack) {
-        return;
-    }
-    
-    //继续错误的处理
     self.errorType = errorType;
     [self removeRequestIdWithRequestID:response.requestId];
-    
-    if (response.content) {
-        self.fetchedRawData = [response.content copy];
-    } else {
-        self.fetchedRawData = [response.responseData copy];
-    }
-    
     if ([self beforePerformFailWithResponse:response]) {
         [self.delegate managerCallAPIDidFailed:self];
     }
