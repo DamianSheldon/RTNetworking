@@ -5,3 +5,4 @@ CTNetworking.xcodeproj/xcuserdata/
 CTNetworking.xcodeproj/project.xcworkspace/xcuserdata/
 a.sh
 .DS_Store
+.clang-format
